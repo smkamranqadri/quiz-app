@@ -1,0 +1,21 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "homepage": "https://github.com/smkamranqadri/quiz-app",
+  "authors": [
+    "smkamranqadri <smkamranqadri@yahoo.com>"
+  ],
+  "description": "\"A Quiz Application\"",
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "angular-resource": "~1.4.4",
+    "material-design-lite": "~1.0.2",
+    "material-design-icon": "~0.1.1"
+  }
+}

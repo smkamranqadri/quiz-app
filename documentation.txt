@@ -1,0 +1,122 @@
+Quiz App
+
+
+a. Sign In
+
+ Front End Objective
+
+  1. Text Field for User ID.
+  2. Passowrd Field for Password.
+  3. Button for Sign In.
+  4. Button for Sign Up.
+
+ Back End Objective
+
+  1. By clicking Sign In, Checking User Name and Passowrd from Database.
+  2. Got matched then Sign In or else give error.
+  3. By clicking Sign Up, goes to Sign Up.
+
+b. Sign Up
+
+ Front End Objective
+
+  1. Text Field for User id.
+  2. Password Field for Password.
+  3. Text Field for User Name.
+  4. Date Field for Date of Birth.
+  5. Email Field for Email.
+  6. Button for Sign Up.
+
+ Back End Objective
+
+  1. By clicking Sign Up, checking user id is unique from database.
+  2. all fields are required.
+  3. updating data to database.
+  4. Sign In.
+  5. goes to quiz list
+	(if user is admin then new quiz & manage user will show else hide)
+	(if user is admin then edit quiz in quiz list will show else hide)
+	(if user is admin then delete quiz in quiz list will show else hide)
+
+c. Quiz List
+
+ Front End Objective
+
+  1. Button for Quiz
+  2. Button for Manage User.
+  3. Button for Sign Out.
+  4. Quiz List.
+  5. Button for Start Quiz in Quiz List.
+  6. Button for Edit Quiz in Quiz List.
+  7. Button for Delete Quiz in Quiz List.
+
+ Back End Objective
+
+  1. By clicking quiz, goes to quiz.
+  2. By clicking manage user, goes to manage user.
+  3. By clicking sign out, goes to sign in.
+  4. By clicking start quiz in quiz list, goes to start quiz.
+  5. By clicking edit quiz in quiz list, goes to edit quiz.
+  6. By clicking delete quiz in quiz list, delete the quiz by check no one is gave the quiz.
+
+d. Quiz
+
+ Front End Objective
+
+  1. Hidden Field for Quiz ID.
+  2. Text Field for Quiz Name.
+  3. Button for Question.
+  4. Question List.
+  5. Button for Edit Question in Question List.
+  6. Button for Delete Question in Question List.
+  7. Button for Submit Quiz.
+
+ Back End Objective
+
+  1. quiz name must require.
+  2. at least one question exits.
+  3. By clicking submit, check if id exist then new record else update record to database.
+  4. go to quiz list.
+
+e. Question
+
+ Front End Objective
+
+  1. Hidden Field for Question ID.
+  2. Multi Line Text Field for Question.
+  3. Text Field for Answer to adding in List.
+  4. Check Field for Correct or Wrong Answer Status.
+  5. Number Field for Duration in Minute
+  6. Button for Adding Answer, Status & Duration to List.
+  7. List Field for Answer & Status.
+  8. Radio Field for Multiple Choice or Single Choice.
+  9. Button for Submit Question
+
+ Back End Objective
+
+  1. all fields are requried.
+  2. at least 4 answer required.
+  3. By clicking submit, check if id exist then new record else update record to database.
+  4. go to quiz.
+
+f. Start Quiz
+
+ Front End Objective
+
+  1. Label for Question.
+  2. List of Answers.
+  3. Radio or Check on each Answer.
+  4. Label for Duration.
+  5. Button for submit Answer.
+
+ Back End Objective
+
+  1. By clicking Submit, goes to next question and save question # with answer # and duration.
+  2. after last question save to database and goes to result.
+
+g. Result
+
+ Front End Objective
+
+  1. Label for correct answers out of total questions.
+  2. Label for correct answers percentage.
