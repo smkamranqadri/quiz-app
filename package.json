@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/smkamranqadri/quiz-app#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "bower": "^1.4.1",
     "express": "^4.13.3",
-    "jade": "^1.11.0"
+    "express-session": "^1.11.3",
+    "jade": "^1.11.0",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0"
   }
 }

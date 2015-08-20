@@ -11,11 +11,11 @@ app.controller('authController', function($rootScope, $scope, $http, $location){
 	$scope.user = {userName:'',passWord:''};
 	
 	$scope.signin = function(){
-      $http.post('/signin/auth', $scope.user).success(function(data){
+      $http.post('/auth/signin', $scope.user).success(function(data){
         if(data.state == 'success'){
           $rootScope.authenticated = true;
           $rootScope.current_user = data.user;
-          $location.path('#/quiz');
+          $location.path('#quiz');
           //Show Quiz Button
         }
         else{
