@@ -10,18 +10,18 @@ export function creatUser (req : express.Request, res : express.Response) {
 	User.findOne({ userName: newUser.userName }, (err : Error, user : IUser) => {
         if (err) {
             res.send(err);
-		} else if (user.userName === newUser.userName) {
-			req.flash('signupMessage', 'User Already Exits!');
-            res.redirect('/signup');			
-		} else {
-			User.create(newUser, (err : Error) => {
+		} else if (user === null) {
+			User.create(newUser, (err: Error) => {
 				if (err) {
 					res.send(err);
 				} else {
 					res.redirect('/quiz');
 				}
 			});
-		}
+		} else if (user.userName === newUser.userName) {
+			req.flash('signupMessage', 'User Already Exits!');
+            res.redirect('/signup');			
+		} 
     });
 }
 

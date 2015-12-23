@@ -6,11 +6,7 @@ function creatUser(req, res) {
         if (err) {
             res.send(err);
         }
-        else if (user.userName === newUser.userName) {
-            req.flash('signupMessage', 'User Already Exits!');
-            res.redirect('/signup');
-        }
-        else {
+        else if (user === null) {
             userModel_1.User.create(newUser, function (err) {
                 if (err) {
                     res.send(err);
@@ -19,6 +15,10 @@ function creatUser(req, res) {
                     res.redirect('/quiz');
                 }
             });
+        }
+        else if (user.userName === newUser.userName) {
+            req.flash('signupMessage', 'User Already Exits!');
+            res.redirect('/signup');
         }
     });
 }

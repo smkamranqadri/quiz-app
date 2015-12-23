@@ -5,8 +5,8 @@ var morgan = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var path = require("path");
-var session = require("express-session");
 var mongoose = require("mongoose");
+var session = require("express-session");
 var flash = require("connect-flash");
 //custom module import
 var index = require('./routes/indexRoute');
@@ -21,15 +21,11 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, '../public')));
 //third party middleware
 app.use(morgan('dev'));
-app.use(cookieParser());
+app.use(cookieParser('fulloffunwithcodingjsints'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({ secret: 'fulloffunwithcodingjsints' }));
 app.use(flash());
-app.use(session({ secret: 'ihavetodosuperduppercoding' }));
-app.use(function (req, res, next) {
-    console.log(req.body);
-    next();
-});
 //custom mounted middleware for routing
 app.use('/', index);
 //start server

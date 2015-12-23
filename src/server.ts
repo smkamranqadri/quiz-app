@@ -7,6 +7,7 @@ import * as cookieParser from "cookie-parser";
 import * as bodyParser   from "body-parser";
 import * as path         from "path";
 import * as mongoose     from "mongoose";
+import * as session      from "express-session";
 
 import flash = require("connect-flash");
 
@@ -27,9 +28,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 //third party middleware
 app.use(morgan('dev'));
-app.use(cookieParser());
+app.use(cookieParser('fulloffunwithcodingjsints'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({secret: 'fulloffunwithcodingjsints'}));
 app.use(flash());
 
 //custom mounted middleware for routing
