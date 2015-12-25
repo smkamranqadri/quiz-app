@@ -34,6 +34,7 @@ function retriveUser(req, res) {
             res.redirect('/signin');
         }
         else if (user.passWord === reqUser.passWord) {
+            req.session['user'] = reqUser.userName;
             res.redirect('/quiz');
         }
         else {
@@ -43,3 +44,20 @@ function retriveUser(req, res) {
     });
 }
 exports.retriveUser = retriveUser;
+function checkUser(req, res, next) {
+    if (req.session && req.session['user']) {
+        userModel_1.User.findOne({ userName: req.session['user'] }, function (err, user) {
+            if (user) {
+                res.locals.user = user.userName;
+            }
+            else {
+                req.session.destroy(function () { });
+            }
+            next();
+        });
+    }
+    else {
+        next();
+    }
+}
+exports.checkUser = checkUser;

@@ -34,10 +34,26 @@ export function retriveUser (req : express.Request, res : express.Response) {
             req.flash('signinMessage', 'User Not Found!!');
             res.redirect('/signin');
         } else if (user.passWord === reqUser.passWord) {
+            req.session['user'] = reqUser.userName;
             res.redirect('/quiz');
         } else {
 			req.flash('signinMessage', 'Invalid Password!');
             res.redirect('/signin');			
 		}
     });
+}
+
+export function checkUser(req: express.Request, res: express.Response, next: Function) {
+	if (req.session && req.session['user']) {
+		User.findOne({ userName: req.session['user'] }, (err: Error, user: IUser) => {
+			if (user) {
+				res.locals.user = user.userName;
+			} else {
+				req.session.destroy(() => { });
+			}
+			next();
+		});
+	} else {
+		next();
+	} 
 }
